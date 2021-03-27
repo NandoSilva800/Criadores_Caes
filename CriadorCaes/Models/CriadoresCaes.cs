@@ -14,6 +14,7 @@ namespace CriadorCaes.Models
         [ForeignKey(nameof(Criador))]
         public int CriadorFK { get; set; }
         public Criadores Criador { get; set; }
+        //*******************************************
 
         //*******************************************
         //FK para o Cao
@@ -21,22 +22,7 @@ namespace CriadorCaes.Models
         [ForeignKey(nameof(Cao))]
         public int CaoFK { get; set; }
         public Criadores Cao { get; set; }
-
-
-
-        //*******************************************
-        //
         //*******************************************
 
-
-
-
-
-
-        public CriadoresCaes()
-        {
-
-            ///
-        }
     }
 }

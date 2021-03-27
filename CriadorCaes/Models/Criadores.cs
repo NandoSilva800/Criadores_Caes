@@ -3,40 +3,47 @@ using System.Collections.Generic;
 
 namespace CriadorCaes.Models
 {
+    /// <summary>
+    /// dados dos criadores dos cães
+    /// </summary>
     public class Criadores
     {
+
+        //construtor
         public Criadores()
         {
+            ListaDeCaes = new HashSet<CriadoresCaes>();
+        }
 
-            /// <summary>
-            /// Nome do cão
-            /// </summary>
-            public string Nome { get; set; }
-      
+        /// <summary>
+        /// Nome do criador
+        /// </summary>
+        public string Nome { get; set; }
+
 
         /// <summary>
         /// Sufixo associado ao cao criado pelo criador
         /// </summary>
         public string NomeComercial { get; set; }
-       
+
 
         /// <summary>
         /// Morada do criador
         /// </summary>
         public string Morada { get; set; }
-        
+
 
         /// <summary>
         /// Codigo postal do criador
         /// </summary>
         public string CodPostal { get; set; }
-        
+
 
         /// <summary>
         /// Email do criador
         /// </summary>
         public string Email { get; set; }
-        
+
 
         /// <summary>
         /// Telemovel do criador
@@ -44,12 +51,11 @@ namespace CriadorCaes.Models
         public string Telemovel { get; set; }
 
 
-        //***************************************
-        //Lista de Caes asociados ao criador
-        //*****************************************
-
-        public ICollection<Caes> ListaDeCaes { get; set; }
-    }
-    }
+        //*************************************************
+        //Lista de Caes associados ao criador
+        //*************************************************
+        public ICollection<CriadoresCaes> ListaDeCaes { get; set; }
+        //*************************************************
     }
 
+}

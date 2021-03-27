@@ -26,11 +26,7 @@ namespace CriadorCaes.Models
         //Criar uma lista de cães a que uma Raça está associada
         //************************************************
         public ICollection<Caes> ListaDeCaes { get; set; }
-
-
-
-
-    //************************************************
+        //************************************************
+    }
 }
-}
-}
+

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CriadorCaes.Models
@@ -10,16 +11,16 @@ namespace CriadorCaes.Models
     {
         //Construtor
         public Caes()
+        {
             //Inicialização de 'listas'
             ListaDeFotografias = new HashSet<Fotografias>();
-            ListaDeCriadores = new HashSet<CriadoresCaes> ();
+            ListaDeCriadores = new HashSet<CriadoresCaes>();
+        }
 
-        {
-
-            /// <summary>
-            /// Nome do cão
-            /// </summary>
-            public string Nome { get; set; }
+        /// <summary>
+        /// Nome do cão
+        /// </summary>
+        public string Nome { get; set; }
 
         /// <summary>
         /// sexo do cão
@@ -69,12 +70,17 @@ namespace CriadorCaes.Models
          * 
          */
 
-        //***********************************************************
+        //****************************************************************
+        // lista de Fotografias do cão
+        //****************************************************************
+        public ICollection<Fotografias> ListaDeFotografias { get; set; }
+        //****************************************************************
 
-
-        //*******************************************
-        //
-        //*********************************************
+        //****************************************************************
+        // lista de Criadores associados ao cão
+        //****************************************************************
+        public ICollection<CriadoresCaes> ListaDeCriadores { get; set; }
+        //****************************************************************
     }
 }
-}
+

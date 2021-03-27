@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using CriadorCaes.Models
+using CriadorCaes.Models;
 
 namespace CriadorCaes.Data
 {
