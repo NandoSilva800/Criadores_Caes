@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CriadorCaes.Models
 {
@@ -20,6 +21,15 @@ namespace CriadorCaes.Models
 
         }
 
+        /// <summary>
+        /// Pk racas
+        /// </summary>
+        [Key]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string Designacao { get; set; }
 
         //************************************************

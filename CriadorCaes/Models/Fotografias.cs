@@ -9,10 +9,19 @@ namespace CriadorCaes.Models
     public class Fotografias
     {
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string Fotografia { get; set; }
-            
+
+        /// <summary>
+        /// data em que foi tirada a fotografia
+        /// </summary>
         public DateTime Data { get; set; }
             
+        /// <summary>
+        /// local da fotografia
+        /// </summary>
         public string Local { get; set; }
 
         //***********************************************

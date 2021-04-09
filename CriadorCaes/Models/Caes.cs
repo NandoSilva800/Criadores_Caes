@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CriadorCaes.Models
@@ -16,6 +17,10 @@ namespace CriadorCaes.Models
             ListaDeFotografias = new HashSet<Fotografias>();
             ListaDeCriadores = new HashSet<CriadoresCaes>();
         }
+
+
+        [Key]
+        public int Id { get; set; }
 
         /// <summary>
         /// Nome do cão
