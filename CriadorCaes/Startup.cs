@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CriadorCaes.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +26,15 @@ namespace CriadorCaes
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            // configurar a aplicação(o nosso sistema) para aceder aà Base de Dados
+            //e de que tipo será
+            services.AddDbContext<CriadorCaesBD>(  //especifica que a BD "CriadorCaesBD deverá ser usada pelo nosso
+                options => options.UseSqlServer(    // a BD será do tipo SqlServer
+                   Configuration.GetConnectionString("DefaultConnection"))
+            );
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

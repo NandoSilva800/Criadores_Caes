@@ -9,6 +9,11 @@ namespace CriadorCaes.Data
 	/// </summary>
     public class CriadorCaesBD : DbContext
     {
+        //e onde está a BD armazenada? --> appStettings.json
+        // e de que tipo será a BD?  -->  startup.cs
+
+        public CriadorCaesBD(DbContextOptions<CriadorCaesBD> options) : base(options) { }
+
         //******************************************************
         //especificar as tabelas na BD
         //****************************************************
