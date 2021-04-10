@@ -29,8 +29,8 @@ namespace CriadorCaes
 
             // configurar a aplicação(o nosso sistema) para aceder aà Base de Dados
             //e de que tipo será
-            services.AddDbContext<CriadorCaesBD>(  //especifica que a BD "CriadorCaesBD deverá ser usada pelo nosso
-                options => options.UseSqlServer(    // a BD será do tipo SqlServer
+            services.AddDbContext<CriadorCaesBD>(  //especifica que a BD "CriadorCaesBD deverá ser usada pelo nosso projeto
+                options => options.UseSqlServer(    // a BD será do tipo MS SqlServer
                    Configuration.GetConnectionString("DefaultConnection"))
             );
 

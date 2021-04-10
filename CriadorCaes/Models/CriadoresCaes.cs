@@ -15,7 +15,7 @@ namespace CriadorCaes.Models
         //*******************************************
         //FK para o Criador
         //*******************************************
-        // [Key Column(Order =1)] //PK com dois atributos
+        // [Key Column(Order =1)] //PK com dois atributos Teste
         [ForeignKey(nameof(Criador))]
         public int CriadorFK { get; set; }
         public Criadores Criador { get; set; }
@@ -24,7 +24,7 @@ namespace CriadorCaes.Models
         //*******************************************
         //FK para o Cao
         //*******************************************
-        // [Key, Column(Order = 2)] //PK com dois atributos
+        // [Key, Column(Order = 2)] //PK com dois atributos  teste
         [ForeignKey(nameof(Cao))]
         public int CaoFK { get; set; }
         public Criadores Cao { get; set; }

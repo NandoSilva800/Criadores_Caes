@@ -18,7 +18,9 @@ namespace CriadorCaes.Models
             ListaDeCriadores = new HashSet<CriadoresCaes>();
         }
 
-
+        /// <summary>
+        /// PK para identificar um cão
+        /// </summary>
         [Key]
         public int Id { get; set; }
 

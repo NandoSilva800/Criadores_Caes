@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CriadorCaes.Models
@@ -10,7 +11,13 @@ namespace CriadorCaes.Models
     {
 
         /// <summary>
-        /// 
+        /// PK para as Fotografias
+        /// </summary>
+        [Key]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// nome do ficheiro que contem a fotografia
         /// </summary>
         public string Fotografia { get; set; }
 

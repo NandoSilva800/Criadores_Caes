@@ -17,12 +17,10 @@ namespace CriadorCaes.Models
         {
             //aceder à BD, e selecionar todos os caes da raça
             ListaDeCaes = new HashSet<Caes>();
-
-
         }
 
         /// <summary>
-        /// Pk racas
+        /// Pk raça
         /// </summary>
         [Key]
         public int Id { get; set; }
