@@ -25,11 +25,11 @@ namespace CriadorCaes {
       public void ConfigureServices(IServiceCollection services) {
          services.AddControllersWithViews();
 
-         // configurar a aplicação (o nosso sistema) para aceder à Base de Dados
-         // e de que tipo será
-         services.AddDbContext<CriadorCaesBD>(    // especifica q a BD 'CriadorCaesBD deverá ser usada pelo nosso projeto
-            options => options.UseSqlServer(      // a BD será do tipo MS SqlServer
-               Configuration.GetConnectionString("DefaultConnection")  // onde está especificada a BD?
+         // configurar a aplicaï¿½ï¿½o (o nosso sistema) para aceder ï¿½ Base de Dados
+         // e de que tipo serï¿½
+         services.AddDbContext<CriadorCaesBD>(    // especifica q a BD 'CriadorCaesBD deverï¿½ ser usada pelo nosso projeto
+            options => options.UseSqlServer(      // a BD serï¿½ do tipo MS SqlServer
+               Configuration.GetConnectionString("DefaultConnection")  // onde estï¿½ especificada a BD?
                )
             );
 
