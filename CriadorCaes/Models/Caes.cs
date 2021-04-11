@@ -2,92 +2,88 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace CriadorCaes.Models
-{
-    /// <summary>
-    /// Dados dos cães
-    /// </summary>
-    public class Caes
-    {
-        //Construtor
-        public Caes()
-        {
-            //Inicialização de 'listas'
-            ListaDeFotografias = new HashSet<Fotografias>();
-            ListaDeCriadores = new HashSet<CriadoresCaes>();
-        }
+namespace CriadorCaes.Models {
 
-        /// <summary>
-        /// PK para identificar um cão
-        /// </summary>
-        [Key]
-        public int Id { get; set; }
+   /// <summary>
+   /// dados dos Cães
+   /// </summary>
+   public class Caes {
 
-        /// <summary>
-        /// Nome do cão
-        /// </summary>
-        public string Nome { get; set; }
+      // construtor
+      public Caes() {
+         // inicialização das 'listas'
+         ListaDeFotografias = new HashSet<Fotografias>();
+         ListaDeCriadores = new HashSet<CriadoresCaes>();
+      }
 
-        /// <summary>
-        /// sexo do cão
-        /// </summary>
-        public string Sexo { get; set; }
-        
-        /// <summary>
-        /// Data de Nascimento
-        /// </summary>
-        public DateTime DataNasc { get; set; }
-       
+      /// <summary>
+      /// PK para identificar um cão
+      /// </summary>
+      [Key]
+      public int Id { get; set; }
 
-        /// <summary>
-        /// Data de compra
-        /// </summary>
-        public DateTime DataCompra { get; set; }
-        
+      /// <summary>
+      /// nome do cão
+      /// </summary>
+      public string Nome { get; set; }
 
-        /// <summary>
-        /// referencia do LOP do cão
-        /// Livro de origens portugues
-        /// </summary>
-        public string LOP { get; set; }
-       
+      /// <summary>
+      /// sexo do cão
+      /// </summary>
+      public string Sexo { get; set; }
 
-        //***********************************************************
-        //FK para a Raça (chave estrangeira)
-        //***********************************************************
+      /// <summary>
+      /// data de nascimento
+      /// </summary>
+      public DateTime DataNasc { get; set; }
 
-        [ForeignKey(nameof(Raca))]    //[ForeignKey("Raca")]
-        public int RacaFK { get; set; }  //FK para Raca no SGBD (SQL)
+      /// <summary>
+      /// data de compra
+      /// </summary>
+      public DateTime DataCompra { get; set; }
 
-        public Racas Raca { get; set; }  //FK para Raca no C#
+      /// <summary>
+      /// referência ao código LOP do cão - 
+      /// LOP - Livro de Origens Português 
+      /// </summary>
+      public string LOP { get; set; }
 
 
 
-        /* em SQL, a criação desta tabela seria....
-         * Create Table Caes(
-         * ?????? Primary Key,
-         * nome Varchar(30) not null,
-         * sexo char(1) not null,
-         * ....
-         * LOP Varchar(20),
-         * raca int not null,
-         * Foreign Key (RacaFK) References Racas(ID)
-         * )
-         * 
-         */
+      //************************************************************
+      // FK para a Raça
+      //************************************************************
+      [ForeignKey(nameof(Raca))]  // [ForeignKey("Raca")]
+      public int RacaFK { get; set; }  // FK para Raca no SGBD (SQL)
+      public Racas Raca { get; set; }  // FK para Raca no C#
 
-        //****************************************************************
-        // lista de Fotografias do cão
-        //****************************************************************
-        public ICollection<Fotografias> ListaDeFotografias { get; set; }
-        //****************************************************************
+      /* em SQL, a criação desta tabela seria...
+       * Create Table Caes(
+       *    ??????? Primary Key,
+       *    nome Varchar(30) not null,
+       *    sexo char(1),
+       *    ....
+       *    LOP Varchar(20),
+       *    racaFK int not null,
+       *    Foreign Key (racaFK) References Racas(Id)
+       * )
+       *
+       */
 
-        //****************************************************************
-        // lista de Criadores associados ao cão
-        //****************************************************************
-        public ICollection<CriadoresCaes> ListaDeCriadores { get; set; }
-        //****************************************************************
-    }
+      //************************************************************
+      // Lista de Fotografias do cão
+      //************************************************************
+      public ICollection<Fotografias> ListaDeFotografias { get; set; }
+      //************************************************************
+
+
+      //************************************************************************
+      // Lista de Criadores associados ao cão
+      //************************************************************************
+      public ICollection<CriadoresCaes > ListaDeCriadores { get; set; }
+      //************************************************************************
+   }
 }
-

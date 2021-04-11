@@ -1,46 +1,45 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace CriadorCaes.Models
-{
-    /// <summary>
-    /// Fotografias associadas a cada cão
-    /// </summary>
-    public class Fotografias
-    {
+namespace CriadorCaes.Models {
 
-        /// <summary>
-        /// PK para as Fotografias
-        /// </summary>
-        [Key]
-        public int Id { get; set; }
+   /// <summary>
+   /// Fotografias associadas a cada cão
+   /// </summary>
+   public class Fotografias {
 
-        /// <summary>
-        /// nome do ficheiro que contem a fotografia
-        /// </summary>
-        public string Fotografia { get; set; }
+      /// <summary>
+      /// PK para as Fotografias
+      /// </summary>
+      [Key]
+      public int Id { get; set; }
 
-        /// <summary>
-        /// data em que foi tirada a fotografia
-        /// </summary>
-        public DateTime Data { get; set; }
-            
-        /// <summary>
-        /// local da fotografia
-        /// </summary>
-        public string Local { get; set; }
+      /// <summary>
+      /// nome do ficheiro que contém a fotografia
+      /// </summary>
+      public string Fotografia { get; set; }
 
-        //***********************************************
-        //FK para o cão
-        //***********************************************
-        [ForeignKey(nameof(Cao))]
-        public int CaoFK { get; set; } //FK para o Cao(SQL)
-        public Caes Cao { get; set; } //FK para o Cao(C#)
+      /// <summary>
+      /// data em que a fotografia foi tirada
+      /// </summary>
+      public DateTime Data{ get; set; }
 
+      /// <summary>
+      /// local onde foi tirada a fotografia
+      /// </summary>
+      public string Local { get; set; }
 
-    }
-   
+      //**************************************************************
+      // FK para o Cão
+      //**************************************************************
+      [ForeignKey(nameof(Cao))]
+      public int CaoFK { get; set; } // FK para o Cao (SQL)
+      public Caes Cao { get; set; }  // FK para o Cao (C#)
+
+      //**************************************************************
+   }
 }
-
-

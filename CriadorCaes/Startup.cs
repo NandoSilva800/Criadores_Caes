@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CriadorCaes.Data;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,58 +8,56 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace CriadorCaes
-{
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-        public IConfiguration Configuration { get; }
+namespace CriadorCaes {
+   public class Startup {
+      public Startup(IConfiguration configuration) {
+         Configuration = configuration;
+      }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllersWithViews();
+      public IConfiguration Configuration { get; }
 
-            // configurar a aplica√ß√£o(o nosso sistema) para aceder a√† Base de Dados
-            //e de que tipo ser√°
-            services.AddDbContext<CriadorCaesBD>(  //especifica que a BD "CriadorCaesBD dever√° ser usada pelo nosso projeto
-                options => options.UseSqlServer(    // a BD ser√° do tipo MS SqlServer
-                   Configuration.GetConnectionString("DefaultConnection"))
+      // This method gets called by the runtime. Use this method to add services to the container.
+      public void ConfigureServices(IServiceCollection services) {
+         services.AddControllersWithViews();
+
+         // configurar a aplicaÁ„o (o nosso sistema) para aceder ‡ Base de Dados
+         // e de que tipo ser·
+         services.AddDbContext<CriadorCaesBD>(    // especifica q a BD 'CriadorCaesBD dever· ser usada pelo nosso projeto
+            options => options.UseSqlServer(      // a BD ser· do tipo MS SqlServer
+               Configuration.GetConnectionString("DefaultConnection")  // onde est· especificada a BD?
+               )
             );
 
 
-        }
+      }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+      // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+      public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+         if (env.IsDevelopment()) {
+            app.UseDeveloperExceptionPage();
+         }
+         else {
+            app.UseExceptionHandler("/Home/Error");
+            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            app.UseHsts();
+         }
+         app.UseHttpsRedirection();
+         app.UseStaticFiles();
 
-            app.UseRouting();
+         app.UseRouting();
 
-            app.UseAuthorization();
+         app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
-        }
-    }
+         app.UseEndpoints(endpoints => {
+            endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+         });
+      }
+   }
 }
